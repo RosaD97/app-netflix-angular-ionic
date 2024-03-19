@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title>Trending Film</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-header>
+
+<ion-content class="content" [fullscreen]="true">
+
+
+  @defer (when !isLoading) {
+  <!-- Film lista -->
+  <ion-list class="content-list">
+    <ion-searchbar [debounce]="1000" (ionInput)="handleInput($event)"></ion-searchbar>
+    <ion-grid>
+      <ion-row class=" ion-padding-horizontal">
+        <ion-col >
+          <p>Film</p>
+        </ion-col>
+        <ion-col size="1.5">
+          <p>Voto</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    @for( item of movies; track item.id) {
+    <ion-item button [routerLink]="['/details', item.id]">
+      <ion-avatar slot="start">
+        <img [src]="imageBaseUrl + '/w92' + item.poster_path" alt="poster" />
+      </ion-avatar>
+      <ion-badge color="danger" slot="end">{{ roundVoteAverage(item.vote_average) }}</ion-badge>
+      <ion-label class="ion-text-wrap">
+        <h3>{{ item.title }}</h3>
+        <!-- prendi solo year -->
+        <p> {{ item.release_date | date: 'y' }}</p>
+      </ion-label>
+    </ion-item>
+
+    } @empty { @if(!isLoading) {
+    <ion-item lines="none">
+      <ion-label class="ion-text-center">Nessun film trovato</ion-label>
+    </ion-item>
+    }}
+  </ion-list>
+<!-- caricamento film allo scroll -->
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Caricando" />
+  </ion-infinite-scroll>
+  } @placeholder {
+  <ion-list>
+    <!-- scheletro -->
+    @for( i of dummyArray; track i) {
+    <ion-item lines="none" class="ion-padding-bottom">
+      <ion-avatar slot="start">
+        <ion-skeleton-text></ion-skeleton-text>
+      </ion-avatar>
+      <ion-skeleton-text [animated]="true" style="height: 40px"></ion-skeleton-text>
+    </ion-item>
+    }
+  </ion-list>
+  } @error {
+  <ion-alert isOpen="true" header="Error" [message]="error" [buttons]="['Ok']" />
+  } @loading(minimum 2s) {
+    <!-- loading -->
+  <app-transition></app-transition>
+  }
+
+</ion-content>

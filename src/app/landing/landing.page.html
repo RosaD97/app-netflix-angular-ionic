@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      NETFLIX
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="content">
+    <div class="title-landing ion-padding">
+      <span>Scegli il tuo film</span>
+    </div>
+    <div class="img-wrapper">
+      <div class="img-landing">
+        <ion-img src="{{imageLanding}}" alt="playLogo"></ion-img>
+      </div>
+    </div>
+    <ion-fab vertical="bottom" horizontal="end">
+      <ion-fab-button color="dark" [routerLink]="['/login']">
+        <ion-icon name="chevron-forward"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  </div>
+</ion-content>

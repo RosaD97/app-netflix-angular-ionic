@@ -1,0 +1,7 @@
+{
+      "workbench.colorCustomizations": {
+        "titleBar.activeBackground": "#002fff", // Colore della barra quando VS Code è attivo
+        "titleBar.inactiveBackground": "#002fff" // Colore della barra quando VS Code è inattivo
+      },
+  "typescript.preferences.autoImportFileExcludePatterns": ["@ionic/angular/common", "@ionic/angular"]
+}

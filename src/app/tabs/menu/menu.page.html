@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="none">
+    <ion-item class="ion-margin-bottom" [detail]="true" *ngFor="let item of options">
+      <ion-avatar slot="start" class="ion-text-center">
+        <ion-icon *ngIf="item?.icon" [name]="item?.icon" [color]="item?.color || 'dark'"></ion-icon>
+      </ion-avatar>
+      <ion-label>{{ item?.name }}</ion-label>
+    </ion-item>
+    <!-- comp -->
+    <!-- <app-button *ngFor="let item of options" [icon]="item?.icon" [nameBtn]="item?.name"></app-button> -->
+  </ion-list>
+
+</ion-content>

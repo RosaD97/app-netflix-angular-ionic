@@ -1,0 +1,30 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="content">
+    <form class="form">
+      <div class="email">
+        <ion-input [(ngModel)]="email" type="email" fill="solid" label="Email" labelPlacement="floating"
+          helperText="Enter a valid email" errorText="Invalid email" email></ion-input>
+      </div>
+      <div class="password">
+        <ion-input [(ngModel)]="password" type="password" fill="solid" label="password" labelPlacement="floating"
+          helperText="Enter a valid password" errorText="Invalid password" email></ion-input>
+        <div class="ion-padding-top">
+          <a [routerLink]="['/reset-password']">Password dimenticata?</a>
+        </div>
+      </div>
+      <ion-fab vertical="bottom" horizontal="end">
+        <ion-fab-button color="dark" [routerLink]="['/tabs']">
+          <ion-icon name="chevron-forward"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </form>
+  </div>
+</ion-content>

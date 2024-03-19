@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title>Search</ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="white">
+    <ion-searchbar [animated]="true" debounce="800" #searchInput placeholder="Cerca un film..."
+      (ionInput)="onSearchChange($event)"></ion-searchbar>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text>Nessun risultato</ion-text>
+</ion-content>

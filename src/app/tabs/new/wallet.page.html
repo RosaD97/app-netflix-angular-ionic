@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-header>
+    <ion-toolbar color="dark">
+      <ion-title>News</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row class=" ion-padding-horizontal">
+      <ion-col>
+        <p>Le ultime uscite</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  @defer (when !isLoading){
+  @for( item of movies; track item.id) {
+  <ion-item class="info-container" button [routerLink]="['/details', item.id]">
+    <ion-col>
+      <ion-row>
+        <h3>{{ item.title }}</h3>
+      </ion-row>
+      <ion-row>
+        <ion-label>
+          <p> {{ item.release_date | date: 'y' }}</p>
+        </ion-label>
+      </ion-row>
+    </ion-col>
+  </ion-item>
+  }
+  } @loading(minimum 2s){
+  <app-transition></app-transition>
+
+  }
+
+</ion-content>

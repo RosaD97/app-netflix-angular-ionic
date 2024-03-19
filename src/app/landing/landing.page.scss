@@ -1,0 +1,34 @@
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    display: flex;
+    justify-content: start;
+    height: 100%;
+
+    .title-landing {
+        color: #fff;
+    }
+
+    .img-wrapper {
+        justify-content: center;
+        display: flex;
+        height: 80%;
+        .img-landing {
+            width: 30%;
+            justify-content: center;
+            display: flex;
+        }
+    }
+
+    .btn-forward {
+        color: black;
+        background-color: black;
+        border: 1px solid beige;
+    }
+}
